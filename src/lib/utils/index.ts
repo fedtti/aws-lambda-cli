@@ -1,1 +1,1 @@
-export { CreateFolder } from './shell';
+export { CreateFolder } from './file-manager';

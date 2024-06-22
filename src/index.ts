@@ -16,9 +16,9 @@ const run: any = async () => {
   init();
 
   // Create a new folder.
-  const folderName: string = CreateFolder();
+  const folderName: string = await CreateFolder();
 
-  //
+  // Initialize Git and npm.
 
 };
 

@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
 /**
- * Create a new folder of the given name (if available) or fallback to the default name.
+ * Create a new empty folder of the given name (if available) or fallback to the default name for the project.
  * @returns {string}
  */
 export const CreateFolder: any = async (): Promise<string> => {

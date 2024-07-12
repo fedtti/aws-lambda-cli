@@ -1,7 +1,7 @@
 import { exec, spawn } from 'child_process';
 
 /**
- * Initialize a new Git repository in the specified folder.
+ * Initialize a new Git repository in the project folder with the default options.
  * @param {string} folder - Target folder.
  */
 export const GitInit: any = (folder: string): any => {
@@ -17,8 +17,8 @@ export const GitInit: any = (folder: string): any => {
 };
 
 /**
- * Initialize a new npm package in the specified folder with the (optional) defined options.
+ * Initialize a new npm package in the project folder with the (optional) defined options.
  */
-export const NpmInit: any = (folder: string, options?: any): any => {
+export const NpmInit: any = (folder: string, options?: NpmOptions): any => {
 
 };

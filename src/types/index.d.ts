@@ -1,3 +1,7 @@
+interface Choices {
+  packageName?: string;
+}
+
 interface NpmOptions {
   initAuthorName?: string;
   initAuthorUrl?: url;

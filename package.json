@@ -1,5 +1,5 @@
 {
-  "name": "@fedtti/create-aws-lambda",
+  "name": "create-aws-lambda",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",

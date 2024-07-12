@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { CreateFolder, GitInit } from './lib/utils';
+import { CreateFolder, GitInit, NpmInit } from './lib/utils';
 
 /**
  * 
@@ -12,14 +12,17 @@ const init = async () => {
 /**
  * 
  */
-const run: any = async () => {
-  init();
+const run: any = async (): Promise<any> => {
+  await init();
 
-  // Create a new folder.
-  const folderName: string = await CreateFolder();
+  try {
+    const folderName: string = await CreateFolder(); // Create a new folder.
+    await GitInit(folderName); // Initialize a new Git repository.
+    const options: any = {};
+    await NpmInit(folderName, options); // Initialize a new npm package with the (optional) defined options.
+  } catch (error) {
 
-  // Initialize Git.
-  const gitInit: any = await GitInit(folderName);
+  }
 };
 
 run();

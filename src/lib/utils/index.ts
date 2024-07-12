@@ -1,2 +1,2 @@
 export { CreateFolder } from './file-manager';
-export { GitInit } from './shell';
+export { GitInit, NpmInit } from './shell';

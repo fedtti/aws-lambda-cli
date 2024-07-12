@@ -1,5 +1,5 @@
 {
-  "name": "aws-lambda-cli",
+  "name": "@fedtti/create-aws-lambda",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -8,7 +8,7 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Federico Moretti <hello@federicomoretti.it>",
   "license": "MIT",
   "devDependencies": {
     "jest": "^29.7.0",

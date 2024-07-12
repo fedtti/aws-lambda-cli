@@ -15,11 +15,12 @@ const init = async () => {
 const run: any = async (): Promise<any> => {
   const choices: any = await init();
   try {
-    const folder: string = await CreateFolder();
-    await GitInit(folder);
-    const name: string = '';
-    const options: any = {};
-    await NpmInit(name, folder, options);
+    const folderName: string = await CreateFolder();
+    await GitInit(folderName);
+    const packageName: string = '';
+    const packageOptions: any = {};
+    await NpmInit(folderName, packageName, packageOptions);
+    console.info();
   } catch (error) {
     console.error(error);
   }

@@ -1,4 +1,4 @@
-interface Choices {
+interface UserChoices {
   packageName?: string;
 }
 

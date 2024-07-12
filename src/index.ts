@@ -5,7 +5,7 @@ import { CreateFolder, GitInit, NpmInit } from './lib/utils';
 /**
  * 
  */
-const init = async (): Promise<Choices> => {
+const init = async (): Promise<UserChoices> => {
   return {};
 };
 
@@ -13,12 +13,14 @@ const init = async (): Promise<Choices> => {
  * 
  */
 const run: any = async (): Promise<any> => {
-  const choices: Choices = await init();
+  const choices: UserChoices = await init();
   try {
     const folderName: string = await CreateFolder();
     await GitInit(folderName);
     const packageName: string = choices.packageName || 'my-lambda';
-    const packageOptions: any = {};
+    const packageOptions: NpmOptions = {
+      
+    };
     await NpmInit(folderName, packageName, packageOptions);
     console.info();
   } catch (error) {

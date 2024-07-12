@@ -7,7 +7,12 @@
     "build": "tsc",
     "test": "jest"
   },
-  "keywords": [],
+  "keywords": [
+    "nodejs",
+    "cli",
+    "aws",
+    "lambda"
+  ],
   "author": "Federico Moretti <hello@federicomoretti.it>",
   "license": "MIT",
   "devDependencies": {

@@ -1,7 +1,7 @@
 import { exec, spawn } from 'child_process';
 
 /**
- * Initialize a new Git repository in the target folder with the default options.
+ * Initialize a new Git empty repository in the target folder with the default options.
  * @param {string} folder - The target folder.
  */
 export const GitInit: any = (folder: string): any => {

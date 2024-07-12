@@ -5,5 +5,7 @@ import { exec, spawn } from 'child_process';
  * @param {string} folder - 
  */
 export const GitInit: any = (folder: string): any => {
-  const commands: string[] = [`cd ${folder}`, 'git init -q'];
+  exec(`git init`, { cwd: `${folder}/` }, (error, stderr, stdout) => {
+
+  });
 };

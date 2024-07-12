@@ -13,12 +13,13 @@ const init = async () => {
  * 
  */
 const run: any = async (): Promise<any> => {
-  await init();
+  const choices: any = await init();
   try {
-    const folderName: string = await CreateFolder();
-    await GitInit(folderName);
+    const folder: string = await CreateFolder();
+    await GitInit(folder);
+    const name: string = '';
     const options: any = {};
-    await NpmInit(folderName, options);
+    await NpmInit(name, folder, options);
   } catch (error) {
     console.error(error);
   }

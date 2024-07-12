@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { CreateFolder } from './lib/utils';
+import { CreateFolder, GitInit } from './lib/utils';
 
 /**
  * 
@@ -18,8 +18,8 @@ const run: any = async () => {
   // Create a new folder.
   const folderName: string = await CreateFolder();
 
-  // Initialize Git and npm.
-
+  // Initialize Git.
+  const gitInit: any = await GitInit(folderName);
 };
 
 run();

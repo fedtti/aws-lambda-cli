@@ -8,10 +8,10 @@ Create an AWS Lambda starter project for Node.js
 
 ## Description
 
-This tool creates an AWS Lambda starter project for Node.js based on the infomation provided.
+This tool creates an AWS Lambda starter project, built for Node.js, based on the infomation provided.
 
 ## Instructions
 
 ## Notes
 
-It has been developed working at Vivocha to speed up the AWS Lambda project bootstrapping process for Node.js.
+It has been developed working at [Vivocha](https://www.vivocha.com/) to speed up the AWS Lambda project bootstrapping process in Node.js.

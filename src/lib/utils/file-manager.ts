@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import fs from 'fs';
 
 /**
  * Create a new empty folder of the given name, if available, or fallback to the default one.

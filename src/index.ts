@@ -35,8 +35,10 @@ const run: any = async (): Promise<any> => {
       
     };
     await NpmInit(folderName, packageName, packageOptions);
+    // TODO @fedtti - Add TypeScript dependencies.
     await TypeScriptInit(folderName);
-    console.info();
+
+    console.info('');
   } catch (error) {
     // TODO @fedtti - Throw new error.
     console.dir(error);

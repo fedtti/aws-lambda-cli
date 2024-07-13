@@ -13,7 +13,7 @@ export const CreateFolder: any = (): string => {
 };
 
 /**
- * Copy configuration files to the target folder.
+ * Copy all of the provided configuration files to the target folder.
  * @param {string} folder - The target folder.
  */
 export const CopyConfigFiles: any = (folder: string): any => {

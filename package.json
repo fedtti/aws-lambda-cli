@@ -7,7 +7,7 @@
     "create-aws-lambda": "./dist/index.js"
   },
   "scripts": {
-    "build": "tsc && mkdir ./dist/lib/data && (cp ./src/lib/data/* ./dist/lib/data || copy ./src/lib/data/* ./dist/lib/data)",
+    "build": "tsc && mkdir ./dist/lib/data && (cp ./src/lib/data/* ./dist/lib/data/ || copy ./src/lib/data/* ./dist/lib/data/)",
     "clean": "rm -fr ./dist ./node_modules || rm ./dist ./node_modules -r -fo",
     "start": "node ./dist/index.js",
     "test": "jest"

@@ -31,5 +31,6 @@
     "chalk": "^5.3.0",
     "figlet": "^1.7.0",
     "inquirer": "^9.2.23"
-  }
+  },
+  "type": "module"
 }

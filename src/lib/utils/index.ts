@@ -1,2 +1,2 @@
-export { CreateFolder, CopyConfigFiles } from './file-manager';
-export { GitInit, NpmInit } from './shell';
+export { CreateFolder, CopyConfigFiles } from './file-manager.js';
+export { GitInit, NpmInit } from './shell.js';

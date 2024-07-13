@@ -1,41 +1,36 @@
 #!/usr/bin/env node
 
+import chalk from 'chalk';
 import figlet from 'figlet';
 import {
   CreateFolder,
   GitInit,
   NpmInit,
   CopyConfigFiles
-} from './lib/utils';
+} from './lib/utils/index.js';
 
 /**
  * 
  */
-const init = async (): Promise<UserChoices> => {
-  figlet.text(
-    'Create AWS Lambda',
-    {},
-    (error, data) => {
-      if (!!error) {
-        console.error('Something went wrong…');
-        console.dir(error);
-        return;
-      }
-      console.info(data);
-    }
+const init = async () => {
+  console.info(
+    chalk.green(
+      figlet.textSync('Create AWS Lambda', {
+        font: 'Ghost'
+      })
+    )
   );
-  return {};
-};
+}
 
 /**
  * 
  */
 const run: any = async (): Promise<any> => {
-  const choices: UserChoices = await init();
+  await init();
   try {
     const folderName: string = await CreateFolder();
     await GitInit(folderName);
-    const packageName: string = choices.packageName || 'my-lambda';
+    const packageName: string = 'my-lambda';
     const packageOptions: PackageOptions = {
       
     };

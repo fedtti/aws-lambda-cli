@@ -13,26 +13,18 @@ export const CreateFolder: any = (): string => {
 };
 
 /**
- * Copy TypeScript configuration.
+ * Copy configuration files to the target folder.
+ * @param {string} folder - The target folder.
  */
-export const TypeScriptConfig: any = (folder: string): any => {
+export const CopyConfigFiles: any = (folder: string): any => {
   try {
-    const data = fs.readFileSync('./dist/lib/data/tsconfig.json');
-    fs.writeFileSync(`./${folder}/tsconfig.json`, data);
+    fs.readdirSync(`./dist/lib/data`)
+      .forEach(file => {
+        const data = fs.readFileSync(`./dist/lib/data/${file}`);
+        fs.writeFileSync(`./${folder}/${file}`, data);
+      });
   } catch (error) {
     // TODO: @fedtti - Throw new error.
     console.dir(error);
-  }
-};
-
-/**
- * Copy Serverless configuration.
- */
-export const ServerlessConfig: any = (folder: string): any => {
-  try {
-    const data = fs.readFileSync('./dist/lib/data/serverless.yml');
-    fs.writeFileSync(`./${folder}/serverless.yml`, data);
-  } catch (error) {
-    // TODO: @fedtti - Throw new error.
   }
 };

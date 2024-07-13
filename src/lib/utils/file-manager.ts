@@ -29,5 +29,10 @@ export const TypeScriptConfig: any = async (folder: string): Promise<any> => {
  * Copy Serverless configuration.
  */
 export const ServerlessConfig: any = async (folder: string): Promise<any> => {
-
+  try {
+    const data = await fs.readFileSync('./dist/lib/data/serverless.yml');
+    fs.writeFileSync(`./${folder}/serverless.yml`, data);
+  } catch (error) {
+    // TODO: @fedtti - Throw new error.
+  }
 };

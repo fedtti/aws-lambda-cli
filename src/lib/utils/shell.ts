@@ -7,12 +7,12 @@ import { exec, spawn } from 'child_process';
 export const GitInit: any = (folder: string): any => {
   exec('git init -q', { cwd: `./${folder}` }, (error, stderr) => {
     if (!!error) {
-
+      // TODO @fedtti - Throw new error.
       console.dir(error);
       return;
     }
     if (!!stderr) {
-      
+      // TODO @fedtti - Throw new error.
       console.dir(stderr);
     }
   });

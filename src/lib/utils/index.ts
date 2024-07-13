@@ -1,2 +1,2 @@
-export { CreateFolder } from './file-manager';
+export { CreateFolder, TypeScriptInit } from './file-manager';
 export { GitInit, NpmInit } from './shell';

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import figlet from 'figlet';
-import { CreateFolder, GitInit, NpmInit } from './lib/utils';
+import { CreateFolder, GitInit, NpmInit, TypeScriptInit } from './lib/utils';
 
 /**
  * 
@@ -35,6 +35,7 @@ const run: any = async (): Promise<any> => {
       
     };
     await NpmInit(folderName, packageName, packageOptions);
+    await TypeScriptInit();
     console.info();
   } catch (error) {
     // TODO @fedtti - Throw new error.

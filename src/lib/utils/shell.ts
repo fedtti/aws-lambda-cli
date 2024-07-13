@@ -5,21 +5,23 @@ import { exec, spawn } from 'child_process';
  * @param {string} folder - The target folder.
  */
 export const GitInit: any = (folder: string): any => {
-  exec('git init -q', { cwd: `${folder}/` }, (error, stderr) => {
+  exec('git init -q', { cwd: `./${folder}` }, (error, stderr) => {
     if (!!error) {
-      console.error(error);
+
+      console.dir(error);
       return;
     }
     if (!!stderr) {
-      console.error(stderr);
+      
+      console.dir(stderr);
     }
   });
 };
 
 /**
  * Initialize a new npm package of the chosen name in the target folder with the (optional) selected options.
- * @param {string} name - The chosen name.
  * @param {string} folder - The target folder.
+ * @param {string} name - The chosen name.
  * @param {NpmOptions} options - The (optional) selected options.
  */
 export const NpmInit: any = (folder: string, name: string, options?: NpmOptions): any => {

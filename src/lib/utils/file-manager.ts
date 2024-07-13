@@ -11,3 +11,10 @@ export const CreateFolder: any = async (): Promise<string> => {
   }
   return folderName;
 };
+
+/**
+ * Copy TypeScript configuration.
+ */
+export const TypeScriptInit: any = async (): Promise<any> => {
+  
+};

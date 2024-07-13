@@ -24,3 +24,10 @@ export const TypeScriptInit: any = async (folder: string): Promise<any> => {
     console.dir(error);
   }
 };
+
+/**
+ * Copy Serverless configuration.
+ */
+export const ServerlessInit: any = async (folder: string): Promise<any> => {
+
+};

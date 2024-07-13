@@ -26,7 +26,7 @@ const init: any = (): any => {
  * 
  */
 const run: any = async (): Promise<any> => {
-  await init();
+  init();
   try {
     const folderName: string = await CreateFolder();
     await GitInit(folderName);

@@ -15,7 +15,7 @@ export const CreateFolder: any = async (): Promise<string> => {
 /**
  * Copy TypeScript configuration.
  */
-export const TypeScriptInit: any = async (folder: string): Promise<any> => {
+export const TypeScriptConfig: any = async (folder: string): Promise<any> => {
   try {
     const data = await fs.readFileSync('./src/lib/data/tsconfig.json');
     fs.writeFileSync(`./${folder}/tsconfig.json`, data);
@@ -28,6 +28,6 @@ export const TypeScriptInit: any = async (folder: string): Promise<any> => {
 /**
  * Copy Serverless configuration.
  */
-export const ServerlessInit: any = async (folder: string): Promise<any> => {
+export const ServerlessConfig: any = async (folder: string): Promise<any> => {
 
 };

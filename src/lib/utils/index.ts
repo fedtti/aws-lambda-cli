@@ -1,2 +1,2 @@
-export { CreateFolder, TypeScriptInit, ServerlessInit } from './file-manager';
+export { CreateFolder, TypeScriptConfig, ServerlessConfig } from './file-manager';
 export { GitInit, NpmInit } from './shell';

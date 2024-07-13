@@ -5,8 +5,8 @@ import {
   CreateFolder,
   GitInit,
   NpmInit,
-  TypeScriptInit,
-  ServerlessInit
+  TypeScriptConfig,
+  ServerlessConfig
 } from './lib/utils';
 
 /**
@@ -42,8 +42,8 @@ const run: any = async (): Promise<any> => {
     };
     await NpmInit(folderName, packageName, packageOptions);
     // TODO @fedtti - Install dependencies.
-    await TypeScriptInit(folderName);
-    await ServerlessInit(folderName);
+    await TypeScriptConfig(folderName);
+    await ServerlessConfig(folderName);
     console.info('');
   } catch (error) {
     // TODO @fedtti - Throw new error.

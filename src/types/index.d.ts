@@ -2,10 +2,10 @@ interface UserChoices {
   packageName?: string;
 }
 
-interface NpmOptions {
+interface PackageOptions {
   initAuthorName?: string;
   initAuthorUrl?: url;
   initLicense?: string;
-  initVersion?: string; // Use the SemVer standard.
+  initVersion?: string; // Please, use the SemVer de facto standard numbering system.
   initScope?: string;
 }

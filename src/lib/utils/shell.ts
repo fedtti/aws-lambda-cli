@@ -22,8 +22,8 @@ export const GitInit: any = (folder: string): any => {
  * Initialize a new npm package of the chosen name in the target folder with the (optional) selected options.
  * @param {string} folder - The target folder.
  * @param {string} name - The chosen name.
- * @param {NpmOptions} options - The (optional) selected options.
+ * @param {PackageOptions} options - The (optional) selected options.
  */
-export const NpmInit: any = (folder: string, name: string, options?: NpmOptions): any => {
+export const NpmInit: any = (folder: string, name: string, options?: PackageOptions): any => {
   // spawn();
 };

@@ -36,7 +36,7 @@ const run: any = async (): Promise<any> => {
     const folderName: string = await CreateFolder();
     await GitInit(folderName);
     const packageName: string = choices.packageName || 'my-lambda';
-    const packageOptions: NpmOptions = {
+    const packageOptions: PackageOptions = {
       
     };
     await NpmInit(folderName, packageName, packageOptions);

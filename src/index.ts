@@ -35,7 +35,7 @@ const run: any = async (): Promise<any> => {
       
     };
     await NpmInit(folderName, packageName, packageOptions);
-    // TODO @fedtti - Install dependencies.
+    // TODO @fedtti - Install package dependencies.
     await CopyConfigFiles(folderName);
     console.info('');
   } catch (error: any) {

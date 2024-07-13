@@ -23,8 +23,8 @@ export const CopyConfigFiles: any = (folder: string): any => {
         const data = fs.readFileSync(`./dist/lib/data/${file}`);
         fs.writeFileSync(`./${folder}/${file}`, data);
       });
-  } catch (error) {
-    // TODO: @fedtti - Throw new error.
+  } catch (error: any) {
+    console.error(`${error.name}: ${error.message}.`);
     console.dir(error);
   }
 };

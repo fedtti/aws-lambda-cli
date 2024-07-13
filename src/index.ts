@@ -43,8 +43,8 @@ const run: any = async (): Promise<any> => {
     // TODO @fedtti - Install dependencies.
     await CopyConfigFiles(folderName);
     console.info('');
-  } catch (error) {
-    // TODO @fedtti - Throw new error.
+  } catch (error: any) {
+    console.error(`${error.name}: ${error.message}.`);
     console.dir(error);
   }
 };

@@ -35,7 +35,7 @@ const run: any = async (): Promise<any> => {
       
     };
     await NpmInit(folderName, packageName, packageOptions);
-    await TypeScriptInit();
+    await TypeScriptInit(folderName);
     console.info();
   } catch (error) {
     // TODO @fedtti - Throw new error.

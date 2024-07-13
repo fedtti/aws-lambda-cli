@@ -5,7 +5,7 @@ import fs from 'fs';
  * @returns {string}
  */
 export const CreateFolder: any = async (): Promise<string> => {
-  const folderName: string = process.argv.length >= 2 ? process.argv[2] : 'my-lambda';
+  const folderName: string = (process.argv.length > 2) ? process.argv[2] : 'my-lambda';
   if (!fs.existsSync(`./${folderName}`)){
     fs.mkdirSync(folderName);
   }

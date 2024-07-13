@@ -8,8 +8,10 @@ import { CreateFolder, GitInit, NpmInit } from './lib/utils';
  */
 const init = async (): Promise<UserChoices> => {
   figlet.text(
-    'Create AWS Lambda', (error, data) => {
-      if (error) {
+    'Create AWS Lambda',
+    {},
+    (error, data) => {
+      if (!!error) {
         console.error('Something went wrong…');
         console.dir(error);
         return;
@@ -35,7 +37,8 @@ const run: any = async (): Promise<any> => {
     await NpmInit(folderName, packageName, packageOptions);
     console.info();
   } catch (error) {
-    console.error(error);
+    // TODO @fedtti - Throw new error.
+    console.dir(error);
   }
 };
 

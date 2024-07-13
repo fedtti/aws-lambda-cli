@@ -10,9 +10,9 @@ import {
 } from './lib/utils/index.js';
 
 /**
- * 
+ * Print the package description in the console.
  */
-const init = async () => {
+const init: any = (): any => {
   console.info(
     chalk.green(
       figlet.textSync('Create AWS Lambda', {
@@ -43,5 +43,4 @@ const run: any = async (): Promise<any> => {
     console.dir(error);
   }
 };
-
 run();

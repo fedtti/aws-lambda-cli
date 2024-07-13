@@ -1,11 +1,22 @@
 #!/usr/bin/env node
 
+import figlet from 'figlet';
 import { CreateFolder, GitInit, NpmInit } from './lib/utils';
 
 /**
  * 
  */
 const init = async (): Promise<UserChoices> => {
+  figlet.text(
+    'Create AWS Lambda', (error, data) => {
+      if (error) {
+        console.error('Something went wrong…');
+        console.dir(error);
+        return;
+      }
+      console.info(data);
+    }
+  );
   return {};
 };
 

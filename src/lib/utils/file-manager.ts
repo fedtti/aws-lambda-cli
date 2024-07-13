@@ -17,7 +17,7 @@ export const CreateFolder: any = async (): Promise<string> => {
  */
 export const TypeScriptConfig: any = async (folder: string): Promise<any> => {
   try {
-    const data = await fs.readFileSync('./lib/data/tsconfig.json');
+    const data = await fs.readFileSync('./dist/lib/data/tsconfig.json');
     fs.writeFileSync(`./${folder}/tsconfig.json`, data);
   } catch (error) {
     // TODO: @fedtti - Throw new error.

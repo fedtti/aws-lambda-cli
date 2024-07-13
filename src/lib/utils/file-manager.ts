@@ -6,7 +6,7 @@ import fs from 'fs';
  */
 export const CreateFolder: any = (): string => {
   const folderName: string = (process.argv.length > 2) ? process.argv[2] : 'my-lambda';
-  if (!fs.existsSync(`./${folderName}`)){
+  if (!fs.existsSync(`./${folderName}`)) {
     fs.mkdirSync(folderName);
   }
   return folderName;

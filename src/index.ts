@@ -24,13 +24,6 @@ const init: any = (): any => {
   );
 };
 
-const devDependencies: string[] = [
-  '@types/node',
-  '@types/express'
-];
-
-const dependencies: string[] = [];
-
 /**
  * 
  */
@@ -47,7 +40,9 @@ const run: any = async (): Promise<any> => {
       
     };
     await NpmInit(folderName, answers.packageName, packageOptions);
-    !!answers.typeScriptSupport ? dependencies.push('typescript'): 0; // Add TypeScript support (default) to the package.
+    const devDependencies: string[] = [],
+             dependencies: string[] = [];
+    !!answers.typeScriptSupport ? (devDependencies.push('@types/node') && dependencies.push('typescript')): 0; // Add TypeScript support (default) to the package.
     await InstallPackageDeps(folderName, devDependencies, dependencies);
     await CopyConfigFiles(folderName);
     console.info('');

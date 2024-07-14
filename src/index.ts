@@ -6,6 +6,7 @@ import {
   CreateFolder,
   GitInit,
   NpmInit,
+  InstallPackageDeps,
   CopyConfigFiles
 } from './lib/utils/index.js';
 
@@ -22,6 +23,13 @@ const init: any = (): any => {
   );
 };
 
+const devDependencies: string[] = [
+  '@types/node',
+  '@types/express'
+];
+
+const dependencies: string[] = [];
+
 /**
  * 
  */
@@ -35,7 +43,7 @@ const run: any = async (): Promise<any> => {
       
     };
     await NpmInit(folderName, packageName, packageOptions);
-    // TODO @fedtti - Install package dependencies.
+    await InstallPackageDeps(folderName, devDependencies, dependencies);
     await CopyConfigFiles(folderName);
     console.info('');
   } catch (error: any) {

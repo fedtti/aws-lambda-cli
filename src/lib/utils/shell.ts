@@ -27,3 +27,13 @@ export const GitInit: any = (folder: string): any => {
 export const NpmInit: any = (folder: string, name: string, options?: PackageOptions): any => {
   // spawn();
 };
+
+/**
+ * Install package development dependencies and dependencies in the target folder.
+ * @param {string} folder - The target folder.
+ * @param {string[]} devDependencies -
+ * @param {string[]} dependencies -
+ */
+export const InstallPackageDeps: any = (folder: string, devDependencies: string[], dependencies: string[]): any => {
+
+};

@@ -1,5 +1,6 @@
 interface UserAnswers {
-  packageName?: string;
+  packageName: string;
+  typeScriptSupport: boolean;
 }
 
 interface PackageOptions {

@@ -33,8 +33,8 @@ const run: any = async (): Promise<any> => {
     const answers: UserAnswers = {
       packageName: await input({ message: 'Enter a name for the new package:' }),
       typeScriptSupport: await confirm({ message: 'Add TypeScript support?', default: true }),
-      selectedFeatures: await checkbox({
-        message: 'Select other features:',
+      additionalFeatures: await checkbox({
+        message: 'Select additional features:',
         choices: [
           { name: 'DynamoDB', value: 'dynamodb' },
           { name: 'Secrets Manager', value: 'secrets'}

@@ -35,6 +35,9 @@ const dependencies: string[] = [];
  */
 const run: any = async (): Promise<any> => {
   init();
+
+  
+
   try {
     const folderName: string = await CreateFolder();
     await GitInit(folderName);

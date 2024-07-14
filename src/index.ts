@@ -2,6 +2,7 @@
 
 import chalk from 'chalk';
 import figlet from 'figlet';
+import { input } from '@inquirer/prompts';
 import {
   CreateFolder,
   GitInit,
@@ -35,17 +36,16 @@ const dependencies: string[] = [];
  */
 const run: any = async (): Promise<any> => {
   init();
-
-  
-
   try {
+    const answers: UserAnswers = {
+      packageName: await input({ message: 'Enter a name for the new package:' })
+    };
     const folderName: string = await CreateFolder();
     await GitInit(folderName);
-    const packageName: string = 'my-lambda';
     const packageOptions: PackageOptions = {
       
     };
-    await NpmInit(folderName, packageName, packageOptions);
+    await NpmInit(folderName, answers.packageName, packageOptions);
     await InstallPackageDeps(folderName, devDependencies, dependencies);
     await CopyConfigFiles(folderName);
     console.info('');

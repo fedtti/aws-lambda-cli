@@ -1,4 +1,4 @@
-interface UserChoices {
+interface UserAnswers {
   packageName?: string;
 }
 

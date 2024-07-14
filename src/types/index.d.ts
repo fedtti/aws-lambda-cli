@@ -1,6 +1,7 @@
 interface UserAnswers {
   packageName: string;
   typeScriptSupport: boolean;
+  otherFeatures: string[];
 }
 
 interface PackageOptions {

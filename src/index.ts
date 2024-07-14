@@ -2,7 +2,7 @@
 
 import chalk from 'chalk';
 import figlet from 'figlet';
-import { input, confirm } from '@inquirer/prompts';
+import { input, confirm, checkbox } from '@inquirer/prompts';
 import {
   CreateFolder,
   GitInit,
@@ -32,7 +32,8 @@ const run: any = async (): Promise<any> => {
   try {
     const answers: UserAnswers = {
       packageName: await input({ message: 'Enter a name for the new package:' }),
-      typeScriptSupport: await confirm({ message: 'Add TypeScript support?', default: true })
+      typeScriptSupport: await confirm({ message: 'Add TypeScript support?', default: true }),
+      otherFeatures: await checkbox({ message: 'Select other features:', choices: [{ name: 'DynamoDB', value: 'dynamodb' }] })
     };
     const folderName: string = await CreateFolder();
     await GitInit(folderName);

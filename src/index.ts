@@ -33,7 +33,13 @@ const run: any = async (): Promise<any> => {
     const answers: UserAnswers = {
       packageName: await input({ message: 'Enter a name for the new package:' }),
       typeScriptSupport: await confirm({ message: 'Add TypeScript support?', default: true }),
-      otherFeatures: await checkbox({ message: 'Select other features:', choices: [{ name: 'DynamoDB', value: 'dynamodb' }] })
+      selectedFeatures: await checkbox({
+        message: 'Select other features:',
+        choices: [
+          { name: 'DynamoDB', value: 'dynamodb' },
+          { name: 'Secrets Manager', value: 'secrets'}
+        ]
+      })
     };
     const folderName: string = await CreateFolder();
     await GitInit(folderName);

@@ -9,7 +9,7 @@ import {
   NpmInit,
   InstallPackageDeps,
   CreateSlsConfigFile,
-  CreateLambdaHandler,
+  CreateLambdaHandlerFile,
   CopyConfigFiles
 } from './lib/utils/index.js';
 
@@ -54,6 +54,7 @@ const run: any = async (): Promise<any> => {
     !!answers.typeScriptSupport ? (devDependencies.push('@types/node') && dependencies.push('typescript')): 0; // Add TypeScript support (default) to the package.
     await InstallPackageDeps(folderName, devDependencies, dependencies);
     await CreateSlsConfigFile(folderName, answers);
+    await CreateLambdaHandlerFile(folderName, answers);
     await CopyConfigFiles(folderName);
     console.info('');
   } catch (error: any) {

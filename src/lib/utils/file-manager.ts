@@ -29,7 +29,7 @@ export const CreateSlsConfigFile: any = (folder: string, answers: UserAnswers): 
  * @param {string} folder - The target folder.
  * @param {UserAnswers} answers - The user answers.
  */
-export const CreateLambdaHandler: any = (folder: string, answers: UserAnswers): any => {
+export const CreateLambdaHandlerFile: any = (folder: string, answers: UserAnswers): any => {
 
 };
 

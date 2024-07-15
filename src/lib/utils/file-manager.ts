@@ -13,9 +13,9 @@ export const CreateFolder: any = (): string => {
 };
 
 /**
- * 
- * @param {string} folder -
- * @param {string} name -
+ * Create the proper Serverless configuration file in the target folder, based on the user answers.
+ * @param {string} folder - The target folder.
+ * @param {string} service - The service name.
  * @param {string[]} options -
  */
 export const CreateSlsConfigFile: any = (folder: string, service: string, options: UserAnswers): any => {

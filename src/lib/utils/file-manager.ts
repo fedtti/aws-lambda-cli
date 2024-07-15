@@ -13,6 +13,18 @@ export const CreateFolder: any = (): string => {
 };
 
 /**
+ * 
+ * @param {string} folder -
+ * @param {string} name -
+ * @param {string[]} options -
+ */
+export const CreateSlsConfigFile: any = (folder: string, service: string, options: UserAnswers): any => {
+  let data: string = `# serverless.yml\n\nservice: ${service}\n\nprovider:\n  name: aws\n  runtime: nodejs20.x\n  stage: dev\n  region: eu-south-1\n  timeout: 30`;
+  
+  fs.writeFileSync(`./${folder}/serverless.yml`, data);
+};
+
+/**
  * Copy all of the provided configuration files to the target folder.
  * @param {string} folder - The target folder.
  */

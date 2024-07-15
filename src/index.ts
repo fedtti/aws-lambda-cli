@@ -52,7 +52,7 @@ const run: any = async (): Promise<any> => {
              dependencies: string[] = [];
     !!answers.typeScriptSupport ? (devDependencies.push('@types/node') && dependencies.push('typescript')): 0; // Add TypeScript support (default) to the package.
     await InstallPackageDeps(folderName, devDependencies, dependencies);
-    await CreateSlsConfigFile(folderName, answers.packageName, packageOptions);
+    await CreateSlsConfigFile(folderName, answers);
     await CopyConfigFiles(folderName);
     console.info('');
   } catch (error: any) {

@@ -25,6 +25,15 @@ export const CreateSlsConfigFile: any = (folder: string, answers: UserAnswers): 
 };
 
 /**
+ * 
+ * @param {string} folder - The target folder.
+ * @param {UserAnswers} answers - The user answers.
+ */
+export const CreateLambdaHandler: any = (folder: string, answers: UserAnswers): any => {
+
+};
+
+/**
  * Copy all of the provided configuration files to the target folder.
  * @param {string} folder - The target folder.
  */

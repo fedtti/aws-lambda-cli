@@ -9,6 +9,7 @@ import {
   NpmInit,
   InstallPackageDeps,
   CreateSlsConfigFile,
+  CreateLambdaHandler,
   CopyConfigFiles
 } from './lib/utils/index.js';
 
@@ -38,7 +39,7 @@ const run: any = async (): Promise<any> => {
         message: 'Select additional features:',
         choices: [
           { name: 'DynamoDB', value: 'dynamodb' },
-          { name: 'Secrets Manager', value: 'secrets'}
+          { name: 'Secrets Manager', value: 'secrets-manager'}
         ]
       })
     };

@@ -47,10 +47,10 @@ const run: any = async (): Promise<any> => {
   try {
     const answers: UserAnswers = {
       packageName: await input({
-        message: 'Enter a name (kebab-case) for the new package:',
+        message: 'Enter a name (kebab-case):',
         transformer: (string) => sanitizePackageName(string)
       }),
-      packageDescription: await input({ message: 'Enter a description for the new package:' }),
+      packageDescription: await input({ message: 'Enter a description:' }),
       typeScriptSupport: await confirm({ message: 'Add TypeScript support?', default: true }),
       additionalFeatures: await checkbox({
         message: 'Select additional features:',
@@ -58,12 +58,12 @@ const run: any = async (): Promise<any> => {
           { name: 'DynamoDB', value: 'dynamodb' },
           { name: 'Secrets Manager', value: 'secrets-manager'}
         ]
-      })
+      },
+      { clearPromptOnDone: true })
     };
     answers.packageName = sanitizePackageName(answers.packageName);
     const folderName: string = await CreateFolder();
     await GitInit(folderName);
-
     const packageOptions: PackageOptions = {
       
     };

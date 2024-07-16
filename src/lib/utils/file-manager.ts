@@ -29,7 +29,7 @@ export const CreateSlsConfigFile: any = (folder: string, answers: UserAnswers): 
 };
 
 /**
- * Create the .
+ * Create the AWS Lambda handler file in the target folder, based on the user answers.
  * @param {string} folder - The target folder.
  * @param {UserAnswers} answers - The user answers.
  */

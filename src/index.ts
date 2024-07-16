@@ -33,15 +33,7 @@ const run: any = async (): Promise<any> => {
   init();
   try {
     const answers: UserAnswers = {
-      packageName: await input({ 
-        message: 'Enter a name (kebab-case) for the new package:',
-        transformer: (string): string => { // Transform the raw user input into a valid kebab-case string.
-          return string.match(/[A-Z]{2,}(?=[A-Z][a-z0-9]*|\b)|[A-Z]?[a-z0-9]*|[A-Z]|[0-9]+/g)!
-                       .filter(Boolean)
-                       .map(string => string.toLowerCase())
-                       .join('-');
-          }
-        }),
+      packageName: await input({ message: 'Enter a name (kebab-case) for the new package:' }),
       packageDescription: await input({ message: 'Enter a description for the new package:' }),
       typeScriptSupport: await confirm({ message: 'Add TypeScript support?', default: true }),
       additionalFeatures: await checkbox({
@@ -52,6 +44,10 @@ const run: any = async (): Promise<any> => {
         ]
       })
     };
+    answers.packageName = answers.packageName.match(/[A-Z]{2,}(?=[A-Z][a-z0-9]*|\b)|[A-Z]?[a-z0-9]*|[A-Z]|[0-9]+/g)! // Sanitize the user input to turn it in a valid kebab-case string.
+                                             .filter(Boolean)
+                                             .map(string => string.toLowerCase())
+                                             .join('-');
     const folderName: string = await CreateFolder();
     await GitInit(folderName);
     const packageOptions: PackageOptions = {

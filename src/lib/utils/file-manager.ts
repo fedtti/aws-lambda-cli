@@ -18,9 +18,10 @@ export const CreateFolder: any = (): string => {
  * @param {UserAnswers} answers - The user answers.
  */
 export const CreateSlsConfigFile: any = (folder: string, answers: UserAnswers): any => {
-  let data: string = `# serverless.yml\n\nservice: ${answers.packageName}\n\nprovider:\n  name: aws\n  runtime: nodejs20.x\n  stage: dev\n  region: eu-south-1\n  timeout: 30`;
-  
-  data += ``; // TODO: @fmoretti - Add Serverless v4.x error handling.
+  let data: string = '# serverless.yml\n\n';
+  const service = `service: ${answers.packageName}\n\nprovider:\n  name: aws\n  runtime: nodejs20.x\n  stage: dev\n  region: ${process.env.AWS_DEFAULT_REGION || process.env.AWS_REGION || 'eu-south-1'}\n  timeout: 30\n\n`;
+  const functions = `functions:\n  ${answers.packageName}:\n  name:  ${answers.packageName}-\${self:provider.stage}\n  description: ${answers.packageDescription}`;
+  data += `configValidationMode: error\n`;
   fs.writeFileSync(`./${folder}/serverless.yml`, data);
 };
 

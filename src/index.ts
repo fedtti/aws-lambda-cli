@@ -34,6 +34,7 @@ const run: any = async (): Promise<any> => {
   try {
     const answers: UserAnswers = {
       packageName: await input({ message: 'Enter a name for the new package:' }),
+      packageDescription: await input({ message: 'Enter a description for the new package:' }),
       typeScriptSupport: await confirm({ message: 'Add TypeScript support?', default: true }),
       additionalFeatures: await checkbox({
         message: 'Select additional features:',

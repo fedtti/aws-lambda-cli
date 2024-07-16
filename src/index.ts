@@ -14,7 +14,7 @@ import {
 } from './lib/utils/index.js';
 
 /**
- * Print the application description in the console.
+ * Print the tool description in the console.
  */
 const init: any = (): any => {
   console.info(
@@ -60,7 +60,7 @@ const run: any = async (): Promise<any> => {
       })
     };
     answers.packageName = sanitizePackageName(answers.packageName);
-    const folderName: string = await CreateFolder();
+    const folderName: string = await CreateFolder(answers.packageName);
     await GitInit(folderName);
     const packageOptions: PackageOptions = {
       

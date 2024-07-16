@@ -33,7 +33,15 @@ const run: any = async (): Promise<any> => {
   init();
   try {
     const answers: UserAnswers = {
-      packageName: await input({ message: 'Enter a name for the new package:' }),
+      packageName: await input({ 
+        message: 'Enter a name (kebab-case) for the new package:',
+        validate: (string): string => {
+          return string.replace(/([A-Z])([A-Z])/g, '$1-$2')
+                       .replace(/([a-z])([A-Z])/g, '$1-$2')
+                       .replace(/[\s_]+/g, '-')
+                       .toLowerCase();
+          }
+        }),
       packageDescription: await input({ message: 'Enter a description for the new package:' }),
       typeScriptSupport: await confirm({ message: 'Add TypeScript support?', default: true }),
       additionalFeatures: await checkbox({

@@ -14,7 +14,7 @@ import {
 } from './lib/utils/index.js';
 
 /**
- * Print the package description in the console.
+ * Print the application description in the console.
  */
 const init: any = (): any => {
   console.info(
@@ -27,13 +27,28 @@ const init: any = (): any => {
 };
 
 /**
+ * Sanitize the user input to turn it into a valid kebab-case string.
+ * @param {string} name - The given package name.
+ * @returns {string}
+ */
+const sanitizePackageName = (name: string): string => {
+  return name.match(/[A-Z]{2,}(?=[A-Z][a-z0-9]*|\b)|[A-Z]?[a-z0-9]*|[A-Z]|[0-9]+/g)!
+             .filter(Boolean)
+             .map(string => string.toLowerCase())
+             .join('-');
+};
+
+/**
  * 
  */
 const run: any = async (): Promise<any> => {
   init();
   try {
     const answers: UserAnswers = {
-      packageName: await input({ message: 'Enter a name (kebab-case) for the new package:' }),
+      packageName: await input({
+        message: 'Enter a name (kebab-case) for the new package:',
+        transformer: (string) => sanitizePackageName(string)
+      }),
       packageDescription: await input({ message: 'Enter a description for the new package:' }),
       typeScriptSupport: await confirm({ message: 'Add TypeScript support?', default: true }),
       additionalFeatures: await checkbox({
@@ -44,10 +59,7 @@ const run: any = async (): Promise<any> => {
         ]
       })
     };
-    answers.packageName = answers.packageName.match(/[A-Z]{2,}(?=[A-Z][a-z0-9]*|\b)|[A-Z]?[a-z0-9]*|[A-Z]|[0-9]+/g)! // Sanitize the user input to turn it in a valid kebab-case string.
-                                             .filter(Boolean)
-                                             .map(string => string.toLowerCase())
-                                             .join('-');
+    answers.packageName = sanitizePackageName(answers.packageName);
     const folderName: string = await CreateFolder();
     await GitInit(folderName);
     const packageOptions: PackageOptions = {
@@ -56,7 +68,7 @@ const run: any = async (): Promise<any> => {
     await NpmInit(folderName, answers.packageName, packageOptions);
     const devDependencies: string[] = [],
              dependencies: string[] = [];
-    !!answers.typeScriptSupport ? (devDependencies.push('@types/node') && dependencies.push('typescript')): 0; // Add TypeScript support (default) to the package.
+    !!answers.typeScriptSupport ? (devDependencies.push('@types/node') && dependencies.push('typescript')): 0; // Add TypeScript support (default, optional) to the package.
     await InstallPackageDeps(folderName, devDependencies, dependencies);
     await CreateSlsConfigFile(folderName, answers);
     await CreateLambdaHandlerFile(folderName, answers);

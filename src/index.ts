@@ -6,7 +6,7 @@ import { input, confirm, checkbox } from '@inquirer/prompts';
 import {
   CreateFolder,
   GitInit,
-  NpmInit,
+  CreateNpmConfigFile,
   InstallPackageDeps,
   CreateSlsConfigFile,
   CreateLambdaHandlerFile,
@@ -61,19 +61,23 @@ const run: any = async (): Promise<any> => {
     };
     answers.packageName = sanitizePackageName(answers.packageName);
     const folderName: string = await CreateFolder();
-
     await GitInit(folderName);
+
     const packageOptions: PackageOptions = {
       
     };
-    await NpmInit(folderName, answers.packageName, packageOptions);
+
+    await CreateNpmConfigFile(folderName, answers.packageName, packageOptions);
+
     const devDependencies: string[] = [],
              dependencies: string[] = [];
-
     !!answers.typeScriptSupport ? (devDependencies.push('@types/node', '@types/express') && devDependencies.push('typescript')): 0; // Add TypeScript support (default, optional) to the package.
     await InstallPackageDeps(folderName, devDependencies, dependencies);
+
     await CreateSlsConfigFile(folderName, answers);
+
     await CreateLambdaHandlerFile(folderName, answers);
+
     await CopyConfigFiles(folderName);
     console.info('');
   } catch (error: any) {

@@ -13,6 +13,15 @@ export const CreateFolder: any = (): string => {
 };
 
 /**
+ * Initialize a new npm package of the chosen name in the target folder with the (optional) selected options.
+ * @param {string} folder - The target folder.
+ * @param {PackageOptions} options - The (optional) selected options.
+ */
+export const CreateNpmConfigFile: any = (folder: string, name: string, options?: PackageOptions): any => {
+
+};
+
+/**
  * Create the proper Serverless configuration file in the target folder, based on the user answers.
  * @param {string} folder - The target folder.
  * @param {UserAnswers} answers - The user answers.

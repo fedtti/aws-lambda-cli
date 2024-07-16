@@ -18,7 +18,7 @@
     "aws",
     "lambda"
   ],
-  "author": "Federico Moretti <hello@federicomoretti.it>",
+  "author": "Federico Moretti <hello@federicomoretti.it> (https://federicomoretti.it/)",
   "license": "MIT",
   "devDependencies": {
     "@types/figlet": "^1.5.8",

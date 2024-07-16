@@ -1,2 +1,2 @@
-export { CreateFolder, CreateSlsConfigFile, CreateLambdaHandlerFile, CopyConfigFiles } from './file-manager.js';
-export { GitInit, NpmInit, InstallPackageDeps } from './shell.js';
+export { CreateFolder, CreateNpmConfigFile, CreateSlsConfigFile, CreateLambdaHandlerFile, CopyConfigFiles } from './file-manager.js';
+export { GitInit, InstallPackageDeps } from './shell.js';

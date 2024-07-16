@@ -36,10 +36,10 @@ const run: any = async (): Promise<any> => {
       packageName: await input({ 
         message: 'Enter a name (kebab-case) for the new package:',
         validate: (string): string => {
-          return string.replace(/([A-Z])([A-Z])/g, '$1-$2')
-                       .replace(/([a-z])([A-Z])/g, '$1-$2')
-                       .replace(/[\s_]+/g, '-')
-                       .toLowerCase();
+          return string.match(/[A-Z]{2,}(?=[A-Z][a-z0-9]*|\b)|[A-Z]?[a-z0-9]*|[A-Z]|[0-9]+/g)!
+                       .filter(Boolean)
+                       .map(string => string.toLowerCase())
+                       .join('-');
           }
         }),
       packageDescription: await input({ message: 'Enter a description for the new package:' }),

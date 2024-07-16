@@ -63,3 +63,19 @@ export const CopyConfigFiles: any = (folder: string): any => {
     console.dir(error);
   }
 };
+
+/**
+ * Remove TypeScript support (default, optional) configuration file from the target folder if not required.
+ * @param {string} folder - The target folder.
+ * @param {boolean} support - 
+ */
+export const RemoveTsConfigFile: any = (folder: string, support: boolean): any => {
+  if (!!support) {
+    try {
+      fs.unlinkSync(`./${folder}/tsconfig.json`);
+    } catch (error: any) {
+      console.error(`${error.name}: ${error.message}.`);
+      console.dir(error);
+    }
+  }
+};

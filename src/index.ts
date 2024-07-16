@@ -10,7 +10,8 @@ import {
   InstallPackageDeps,
   CreateSlsConfigFile,
   CreateLambdaHandlerFile,
-  CopyConfigFiles
+  CopyConfigFiles,
+  RemoveTsConfigFile
 } from './lib/utils/index.js';
 
 /**
@@ -79,6 +80,7 @@ const run: any = async (): Promise<any> => {
     await CreateLambdaHandlerFile(folderName, answers);
 
     await CopyConfigFiles(folderName);
+    await RemoveTsConfigFile(folderName, answers.typeScriptSupport);
     console.info('');
   } catch (error: any) {
     console.error(`${error.name}: ${error.message}.`);

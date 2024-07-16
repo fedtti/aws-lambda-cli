@@ -15,6 +15,7 @@ export const CreateFolder: any = (): string => {
 /**
  * Initialize a new npm package of the chosen name in the target folder with the (optional) selected options.
  * @param {string} folder - The target folder.
+ * @param {string} name - The chosen name.
  * @param {PackageOptions} options - The (optional) selected options.
  */
 export const CreateNpmConfigFile: any = (folder: string, name: string, options?: PackageOptions): any => {

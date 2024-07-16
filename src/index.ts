@@ -60,15 +60,19 @@ const run: any = async (): Promise<any> => {
       })
     };
     answers.packageName = sanitizePackageName(answers.packageName);
-    const folderName: string = await CreateFolder(answers.packageName);
+    const folderName: string = await CreateFolder();
+
     await GitInit(folderName);
     const packageOptions: PackageOptions = {
       
     };
     await NpmInit(folderName, answers.packageName, packageOptions);
     const devDependencies: string[] = [],
-             dependencies: string[] = [];
-    !!answers.typeScriptSupport ? (devDependencies.push('@types/node') && dependencies.push('typescript')): 0; // Add TypeScript support (default, optional) to the package.
+             dependencies: string[] = [
+              'serverless-http'
+             ];
+
+    !!answers.typeScriptSupport ? (devDependencies.push('@types/node') && devDependencies.push('typescript')): 0; // Add TypeScript support (default, optional) to the package.
     await InstallPackageDeps(folderName, devDependencies, dependencies);
     await CreateSlsConfigFile(folderName, answers);
     await CreateLambdaHandlerFile(folderName, answers);

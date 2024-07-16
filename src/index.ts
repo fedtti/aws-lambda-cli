@@ -9,7 +9,7 @@ import {
   CreateNpmConfigFile,
   InstallPackageDeps,
   CreateSlsConfigFile,
-  CreateLambdaHandlerFile,
+  CreateAwsLambdaHandlerFile,
   CopyConfigFiles,
   RemoveTsConfigFile
 } from './lib/utils/index.js';
@@ -77,7 +77,7 @@ const run: any = async (): Promise<any> => {
 
     await CreateSlsConfigFile(folderName, answers);
 
-    await CreateLambdaHandlerFile(folderName, answers);
+    await CreateAwsLambdaHandlerFile(folderName, answers);
 
     await CopyConfigFiles(folderName);
     await RemoveTsConfigFile(folderName, answers.typeScriptSupport);

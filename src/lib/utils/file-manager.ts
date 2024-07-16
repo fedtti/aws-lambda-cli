@@ -43,7 +43,7 @@ export const CreateSlsConfigFile: any = (folder: string, answers: UserAnswers): 
  * @param {string} folder - The target folder.
  * @param {UserAnswers} answers - The user answers.
  */
-export const CreateLambdaHandlerFile: any = (folder: string, answers: UserAnswers): any => {
+export const CreateAwsLambdaHandlerFile: any = (folder: string, answers: UserAnswers): any => {
 
 };
 
@@ -70,7 +70,7 @@ export const CopyConfigFiles: any = (folder: string): any => {
  * @param {boolean} support - 
  */
 export const RemoveTsConfigFile: any = (folder: string, support: boolean): any => {
-  if (!!support) {
+  if (!support) {
     try {
       fs.unlinkSync(`./${folder}/tsconfig.json`);
     } catch (error: any) {

@@ -80,7 +80,7 @@ const run: any = async (): Promise<any> => {
     await CreateAwsLambdaHandlerFile(folderName, answers);
 
     await CopyConfigFiles(folderName);
-    await RemoveTsConfigFile(folderName, answers.typeScriptSupport);
+    await RemoveTsConfigFile(folderName, answers.typeScriptSupport); // Remove TypeScript support (default, optional) from the package if not required.
     console.info('');
   } catch (error: any) {
     console.error(`${error.name}: ${error.message}.`);

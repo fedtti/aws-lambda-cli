@@ -40,7 +40,7 @@ const sanitizePackageName = (name: string): string => {
 };
 
 /**
- * 
+ * Prompt the user to configure the available options and create the starter project.
  */
 const run: any = async (): Promise<any> => {
   init();

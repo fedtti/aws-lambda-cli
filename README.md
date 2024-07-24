@@ -18,7 +18,7 @@ This tool creates an AWS Lambda starter project, built for Node.js, based on the
 
 ### Prerequisites
 
-
+- Node.js v20.x+
 
 ### Installation
 
@@ -33,6 +33,11 @@ npx create-aws-lambda <em>folder-name</em>
 </pre>
 
 If you don't provide a folder name, it will fallback to `my-lambda`.
+
+It supports the following environment variables:
+- `AWS_DEFAULT_REGION`
+- `AWS_REGION`
+- `NODE_ENV`
 
 ## Contributing
 

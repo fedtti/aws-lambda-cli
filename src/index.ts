@@ -69,7 +69,6 @@ const run: any = async (): Promise<any> => {
     };
 
     await CreateNpmConfigFile(folderName, answers.packageName, packageOptions);
-
     const devDependencies: string[] = [],
              dependencies: string[] = [];
     !!answers.typeScriptSupport ? (devDependencies.push('@types/node', '@types/express') && devDependencies.push('typescript')): 0; // Add TypeScript support (default, optional) to the package.

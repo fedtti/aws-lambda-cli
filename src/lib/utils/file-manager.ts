@@ -5,10 +5,11 @@ import fs from 'fs';
  * @returns {string}
  */
 export const CreateFolder: any = (): string => {
-  const folderName: string = (process.argv.length > 2) ? process.argv[2] : 'my-lambda';
+  let folderName: string = (process.argv.length > 2) ? process.argv[2] : 'my-lambda';
   if (!fs.existsSync(`./${folderName}`)) {
     fs.mkdirSync(folderName);
   }
+  // TODO: @fedtti - Sanitize the folder name.
   return folderName;
 };
 
@@ -19,7 +20,10 @@ export const CreateFolder: any = (): string => {
  * @param {PackageOptions} options - The (optional) selected options.
  */
 export const CreateNpmConfigFile: any = (folder: string, name: string, options?: PackageOptions): any => {
-
+  let data: string = '{\n';
+  // TODO: @fedtti - Add sections.
+  data += '}\n'
+  fs.writeFileSync(`./${folder}/package.json`, data);
 };
 
 /**
@@ -67,7 +71,7 @@ export const CopyConfigFiles: any = (folder: string): any => {
 /**
  * Remove TypeScript support (default, optional) configuration file from the target folder if not required.
  * @param {string} folder - The target folder.
- * @param {boolean} support - 
+ * @param {boolean} support - False if TypeScript is not required.
  */
 export const RemoveTsConfigFile: any = (folder: string, support: boolean): any => {
   if (!support) {

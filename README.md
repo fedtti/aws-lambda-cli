@@ -3,7 +3,10 @@
 Create an AWS Lambda starter project for Node.js
 
 - [Description](#description)
-- [Instructions](#instructions)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage](#usage)
 - [Contributing](#contributing)
 - [Notes](#notes)
 
@@ -11,7 +14,25 @@ Create an AWS Lambda starter project for Node.js
 
 This tool creates an AWS Lambda starter project, built for Node.js, based on the infomation provided.
 
-## Instructions
+## Getting Started
+
+### Prerequisites
+
+
+
+### Installation
+
+<pre lang="node">
+npm i -g @fedtti/create-aws-lambda
+</pre>
+
+### Usage
+
+<pre lang="node">
+npx create-aws-lambda <em>folder-name</em>
+</pre>
+
+If you don't provide a folder name, it will fallback to `my-lambda`.
 
 ## Contributing
 

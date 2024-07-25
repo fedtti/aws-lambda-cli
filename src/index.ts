@@ -4,7 +4,7 @@ import chalk from 'chalk';
 import figlet from 'figlet';
 import { input, confirm, checkbox } from '@inquirer/prompts';
 import {
-  SanitizePackageName,
+  SanitizeInput,
   CreateFolder,
   GitInit,
   CreateNpmConfigFile,
@@ -37,7 +37,7 @@ const run: any = async (): Promise<any> => {
     const answers: UserAnswers = {
       packageName: await input({
         message: 'Enter a name (kebab-case):',
-        transformer: (string) => SanitizePackageName(string)
+        transformer: (string) => SanitizeInput(string)
       }),
       packageDescription: await input({ message: 'Enter a description:' }),
       typeScriptSupport: await confirm({ message: 'Add TypeScript support?', default: true }),
@@ -50,14 +50,14 @@ const run: any = async (): Promise<any> => {
       },
       { clearPromptOnDone: true })
     };
-    answers.packageName = SanitizePackageName(answers.packageName);
+    answers.packageName = SanitizeInput(answers.packageName);
     const folderName: string = await CreateFolder();
     await GitInit(folderName);
     const packageOptions: PackageOptions = {
       
     };
 
-    await CreateNpmConfigFile(folderName, answers.packageName, packageOptions);
+    await CreateNpmConfigFile(folderName, answers, packageOptions);
     const devDependencies: string[] = [],
              dependencies: string[] = [];
     !!answers.typeScriptSupport ? (devDependencies.push('@types/node', '@types/express') && devDependencies.push('typescript')): 0; // Add TypeScript support (default, optional) to the package.

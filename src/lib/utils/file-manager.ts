@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { SanitizePackageName } from './tools.js';
+import { SanitizeInput } from './tools.js';
 
 /**
  * Create a new empty folder of the given name, if available, or fallback to a default one.
@@ -7,7 +7,7 @@ import { SanitizePackageName } from './tools.js';
  */
 export const CreateFolder: any = (): string => {
   let folderName: string = (process.argv.length > 2) ? process.argv[2] : 'my-lambda';
-  folderName = SanitizePackageName(folderName);
+  folderName = SanitizeInput(folderName);
   if (!fs.existsSync(`./${folderName}`)) {
     fs.mkdirSync(folderName);
   }
@@ -21,8 +21,9 @@ export const CreateFolder: any = (): string => {
  * @param {string} name - The chosen name.
  * @param {PackageOptions} options - The (optional) selected options.
  */
-export const CreateNpmConfigFile: any = (folder: string, name: string, options?: PackageOptions): any => {
+export const CreateNpmConfigFile: any = (folder: string, answers: UserAnswers, options?: PackageOptions): any => {
   let data: string = '{\n';
+  data += `  "name": "${answers.packageName}"\n  "version": "0.1.0"\n  "description": "${answers.packageDescription}"\n`;
   // TODO: @fedtti - Add sections.
   data += '}\n'
   fs.writeFileSync(`./${folder}/package.json`, data);

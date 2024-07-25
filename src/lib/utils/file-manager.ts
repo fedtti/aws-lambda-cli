@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { SanitizePackageName } from './tools.js';
 
 /**
  * Create a new empty folder of the given name, if available, or fallback to a default one.
@@ -6,6 +7,7 @@ import fs from 'fs';
  */
 export const CreateFolder: any = (): string => {
   let folderName: string = (process.argv.length > 2) ? process.argv[2] : 'my-lambda';
+  folderName = SanitizePackageName(folderName);
   if (!fs.existsSync(`./${folderName}`)) {
     fs.mkdirSync(folderName);
   }
@@ -71,7 +73,7 @@ export const CopyConfigFiles: any = (folder: string): any => {
 /**
  * Remove TypeScript support (default, optional) configuration file from the target folder if not required.
  * @param {string} folder - The target folder.
- * @param {boolean} support - False if TypeScript is not required.
+ * @param {boolean} support - False, if TypeScript is not required.
  */
 export const RemoveTsConfigFile: any = (folder: string, support: boolean): any => {
   if (!support) {

@@ -4,6 +4,7 @@ import chalk from 'chalk';
 import figlet from 'figlet';
 import { input, confirm, checkbox } from '@inquirer/prompts';
 import {
+  SanitizePackageName,
   CreateFolder,
   GitInit,
   CreateNpmConfigFile,
@@ -28,18 +29,6 @@ const init: any = (): any => {
 };
 
 /**
- * Sanitize the user input to turn it into a valid kebab-case string.
- * @param {string} name - The given package name.
- * @returns {string}
- */
-const sanitizePackageName = (name: string): string => {
-  return name.match(/[A-Z]{2,}(?=[A-Z][a-z0-9]*|\b)|[A-Z]?[a-z0-9]*|[A-Z]|[0-9]+/g)!
-             .filter(Boolean)
-             .map(string => string.toLowerCase())
-             .join('-');
-};
-
-/**
  * Prompt the user to configure the available options and create the starter project.
  */
 const run: any = async (): Promise<any> => {
@@ -48,7 +37,7 @@ const run: any = async (): Promise<any> => {
     const answers: UserAnswers = {
       packageName: await input({
         message: 'Enter a name (kebab-case):',
-        transformer: (string) => sanitizePackageName(string)
+        transformer: (string) => SanitizePackageName(string)
       }),
       packageDescription: await input({ message: 'Enter a description:' }),
       typeScriptSupport: await confirm({ message: 'Add TypeScript support?', default: true }),
@@ -61,7 +50,7 @@ const run: any = async (): Promise<any> => {
       },
       { clearPromptOnDone: true })
     };
-    answers.packageName = sanitizePackageName(answers.packageName);
+    answers.packageName = SanitizePackageName(answers.packageName);
     const folderName: string = await CreateFolder();
     await GitInit(folderName);
     const packageOptions: PackageOptions = {
@@ -73,11 +62,8 @@ const run: any = async (): Promise<any> => {
              dependencies: string[] = [];
     !!answers.typeScriptSupport ? (devDependencies.push('@types/node', '@types/express') && devDependencies.push('typescript')): 0; // Add TypeScript support (default, optional) to the package.
     await InstallPackageDeps(folderName, devDependencies, dependencies);
-
     await CreateSlsConfigFile(folderName, answers);
-
     await CreateAwsLambdaHandlerFile(folderName, answers);
-
     await CopyConfigFiles(folderName);
     await RemoveTsConfigFile(folderName, answers.typeScriptSupport); // Remove TypeScript support (default, optional) from the package if not required.
     console.info('');

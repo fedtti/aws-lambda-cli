@@ -22,17 +22,17 @@ This tool creates an AWS Lambda starter project, built for Node.js, based on the
 
 ### Installation
 
-<pre lang="node">
+<pre lang="javascript">
 npm i -g @fedtti/create-aws-lambda
 </pre>
 
 ### Usage
 
-<pre lang="node">
+<pre lang="javascript">
 npx create-aws-lambda <em>folder-name</em>
 </pre>
 
-If you don't provide a folder name, it will fallback to `my-lambda`.
+If you don't provide a folder name, it will fallback to `my-lambda`. Strings will be sanitized as kebab-case.
 
 It supports the following environment variables:
 - `AWS_DEFAULT_REGION`

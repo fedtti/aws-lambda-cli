@@ -22,13 +22,13 @@ This tool creates an AWS Lambda starter project, built for Node.js, based on the
 
 ### Installation
 
-<pre lang="javascript">
+<pre lang="bash">
 npm i -g @fedtti/create-aws-lambda
 </pre>
 
 ### Usage
 
-<pre lang="javascript">
+<pre lang="bash">
 npx create-aws-lambda <em>folder-name</em>
 </pre>
 

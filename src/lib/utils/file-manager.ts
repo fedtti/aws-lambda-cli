@@ -21,9 +21,7 @@ export const CreateFolder: any = (): string => {
  * @param {PackageOptions} options - The (optional) selected options.
  */
 export const CreateNpmConfigFile: any = (folder: string, answers: UserAnswers, options: PackageOptions): any => {
-  let data: string = '{\n';
-  data += `  "name": "${answers.packageName}",\n  "version": "0.1.0",\n  "description": "${answers.packageDescription}",\n  "license": "${options.license || 'ISC'}",\n  "main": "./dist/index.js",\n  "bin": {\n    "${answers.packageName}": "./dist.index.js"\n  }\n`;
-  data += '}\n'
+  let data: string = `{\n  "name": "${answers.packageName}",\n  "version": "0.1.0",\n  "description": "${answers.packageDescription}",\n  "license": "${options.license || 'ISC'}",\n  "main": "./dist/index.js",\n  "bin": {\n    "${answers.packageName}": "./dist.index.js"\n  }\n}\n`;
   fs.writeFileSync(`./${folder}/package.json`, data);
 };
 

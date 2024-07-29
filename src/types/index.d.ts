@@ -3,6 +3,7 @@ interface UserAnswers {
   packageDescription: string;
   typeScriptSupport: boolean;
   additionalFeatures: string[];
+  license: string;
 }
 
 interface PackageOptions {

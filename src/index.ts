@@ -48,7 +48,8 @@ const run: any = async (): Promise<any> => {
           { name: 'Secrets Manager', value: 'secrets-manager'}
         ]
       },
-      { clearPromptOnDone: true })
+      { clearPromptOnDone: true }),
+      license: await input({ message: '' })
     };
     answers.packageName = SanitizeInput(answers.packageName);
     const folderName: string = await CreateFolder();

@@ -23,7 +23,7 @@ export const CreateFolder: any = (): string => {
  */
 export const CreateNpmConfigFile: any = (folder: string, answers: UserAnswers, options?: PackageOptions): any => {
   let data: string = '{\n';
-  data += `  "name": "${answers.packageName}"\n  "version": "0.1.0"\n  "description": "${answers.packageDescription}"\n`;
+  data += `  "name": "${answers.packageName},"\n  "version": "0.1.0",\n  "description": "${answers.packageDescription}",\n`;
   // TODO: @fedtti - Add sections.
   data += '}\n'
   fs.writeFileSync(`./${folder}/package.json`, data);

@@ -21,9 +21,9 @@ export const GitInit: any = (folder: string): any => {
 /**
  * Install package development dependencies and dependencies in the target folder.
  * @param {string} folder - The target folder.
- * @param {string[]} devDependencies - The package develompent dependencies.
  * @param {string[]} dependencies - The package dependencies.
+ * @param {string[]} devDependencies - The package develompent dependencies.
  */
-export const InstallPackageDeps: any = (folder: string, devDependencies: string[], dependencies: string[]): any => {
+export const InstallPackageDeps: any = (folder: string, dependencies: string[], devDependencies: string[]): any => {
 
 };

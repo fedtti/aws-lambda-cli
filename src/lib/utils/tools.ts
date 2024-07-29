@@ -9,3 +9,12 @@ export const SanitizeInput = (input: string): string => {
              .map(string => string.toLowerCase())
              .join('-');
 };
+
+/**
+ * 
+ * @param {string} license -
+ * @returns {string}
+ */
+export const ValidateLicense = (license: string): string => {
+  return license;
+};

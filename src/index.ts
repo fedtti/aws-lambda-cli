@@ -8,6 +8,7 @@ import {
   CreateFolder,
   GitInit,
   CreateNpmConfigFile,
+  ValidateLicense,
   InstallPackageDeps,
   CreateSlsConfigFile,
   CreateAwsLambdaHandlerFile,
@@ -48,21 +49,22 @@ const run: any = async (): Promise<any> => {
           { name: 'Secrets Manager', value: 'secrets-manager'}
         ]
       },
-      { clearPromptOnDone: true }),
-      license: await input({ message: '' })
+      { clearPromptOnDone: true })
     };
     answers.packageName = SanitizeInput(answers.packageName);
     const folderName: string = await CreateFolder();
     await GitInit(folderName);
     const packageOptions: PackageOptions = {
+      license: await input({ message: 'Enter a license:' }),
       
     };
-
+    packageOptions.license = ValidateLicense(packageOptions.license);
     await CreateNpmConfigFile(folderName, answers, packageOptions);
-    const devDependencies: string[] = [],
-             dependencies: string[] = [];
+    const    dependencies: string[] = [],
+          devDependencies: string[] = [];
+
     !!answers.typeScriptSupport ? (devDependencies.push('@types/node', '@types/express') && devDependencies.push('typescript')): 0; // Add TypeScript support (default, optional) to the package.
-    await InstallPackageDeps(folderName, devDependencies, dependencies);
+    await InstallPackageDeps(folderName, dependencies,  devDependencies);
     await CreateSlsConfigFile(folderName, answers);
     await CreateAwsLambdaHandlerFile(folderName, answers);
     await CopyConfigFiles(folderName);

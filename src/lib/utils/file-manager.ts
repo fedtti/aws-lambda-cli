@@ -47,7 +47,14 @@ export const CreateSlsConfigFile: any = (folder: string, answers: UserAnswers): 
  * @param {UserAnswers} answers - The user answers.
  */
 export const CreateAwsLambdaHandlerFile: any = (folder: string, answers: UserAnswers): any => {
+  let data: string = '#!/usr/bin/env node\n\n';
 
+  const extension: string = !!answers.typeScriptSupport ? 'ts' : 'js';
+
+  if (!fs.existsSync(`./${folder}/src`)){
+    fs.mkdirSync(`${folder}/src`);
+  }
+  fs.writeFileSync(`./${folder}/src/index.${extension}`, data);
 };
 
 /**

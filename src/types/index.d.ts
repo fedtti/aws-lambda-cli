@@ -6,5 +6,5 @@ interface UserAnswers {
 }
 
 interface PackageOptions {
-  license: string;
+  license: string | undefined;
 }

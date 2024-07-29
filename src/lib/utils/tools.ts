@@ -11,10 +11,11 @@ export const SanitizeInput = (input: string): string => {
 };
 
 /**
- * 
- * @param {string} license -
+ * Validate the user typed license.
+ * @param {string} license - The typed license.
  * @returns {string}
  */
-export const ValidateLicense = (license: string): string => {
+export const ValidateLicense = (license: string | undefined): string | undefined => {
+  const licenses = []; // TODO: @fedtti - Get the list of available licenses from SPDX.
   return license;
 };

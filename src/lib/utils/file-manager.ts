@@ -11,7 +11,6 @@ export const CreateFolder: any = (): string => {
   if (!fs.existsSync(`./${folderName}`)) {
     fs.mkdirSync(folderName);
   }
-  // TODO: @fedtti - Sanitize the folder name.
   return folderName;
 };
 

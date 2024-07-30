@@ -48,6 +48,8 @@ export const CreateSlsConfigFile: any = (folder: string, answers: UserAnswers): 
 export const CreateAwsLambdaHandlerFile: any = (folder: string, answers: UserAnswers): any => {
   let data: string = '#!/usr/bin/env node\n\n';
   // TODO: @fedtti - Add configuration here.
+
+  data += `export const handler = ''\n`;
   const extension: string = !!answers.typeScriptSupport ? 'ts' : 'js';
   if (!fs.existsSync(`./${folder}/src`)){
     fs.mkdirSync(`${folder}/src`);

@@ -1,3 +1,5 @@
+import { Octokit, App } from 'octokit';
+
 /**
  * Sanitize the user input to turn it into a valid kebab-case string.
  * @param {string} input - The given input.
